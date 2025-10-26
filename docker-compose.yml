@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  ayla-agent:
+    image: aylaagent/ayla-agent:latest
+    container_name: ayla-agent
+    ports:
+      - "50001:80"
+      - "22:22"
+      - "9000-9009:9000-9009"
+    environment:
+      - BRANCH=local
+    mem_limit: 2g
+    mem_reservation: 1g
+    cpus: 2
+    restart: unless-stopped
+    volumes:
+      - ayla-data:/data
+      - ayla-logs:/logs
+      - ayla-memory:/memory
+      - ayla-knowledge:/knowledge
+    networks:
+      - ayla-network
+
+networks:
+  ayla-network:
+    driver: bridge
+
+volumes:
+  ayla-data:
+  ayla-logs:
+  ayla-memory:
+  ayla-knowledge:

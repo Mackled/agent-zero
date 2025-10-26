@@ -1,38 +1,34 @@
 <div align="center">
 
-# `Agent Zero`
+# `Ayla Agent`
 
 
-[![Agent Zero Website](https://img.shields.io/badge/Website-agent--zero.ai-0A192F?style=for-the-badge&logo=vercel&logoColor=white)](https://agent-zero.ai) [![Thanks to Sponsors](https://img.shields.io/badge/GitHub%20Sponsors-Thanks%20to%20Sponsors-FF69B4?style=for-the-badge&logo=githubsponsors&logoColor=white)](https://github.com/sponsors/agent0ai) [![Follow on X](https://img.shields.io/badge/X-Follow-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/Agent0ai) [![Join our Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/B8KZKNsPpj) [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@AgentZeroFW) [![Connect on LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jan-tomasek/) [![Follow on Warpcast](https://img.shields.io/badge/Warpcast-Follow-5A32F3?style=for-the-badge)](https://warpcast.com/agent-zero) 
+[![Ayla Agent Website](https://img.shields.io/badge/Website-ayla--agent.ai-7C3AED?style=for-the-badge&logo=vercel&logoColor=white)](https://ayla-agent.ai) [![Follow on X](https://img.shields.io/badge/X-Follow-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/AylaAgent) 
 
 
-## Documentation:
+## Dokümantasyon:
 
-[Introduction](#a-personal-organic-agentic-framework-that-grows-and-learns-with-you) •
-[Installation](./docs/installation.md) •
-[Development](./docs/development.md) •
-[Extensibility](./docs/extensibility.md) •
-[Connectivity](./docs/connectivity.md) •
-[How to update](./docs/installation.md#how-to-update-agent-zero) •
-[Documentation](./docs/README.md) •
-[Usage](./docs/usage.md)
-
-Or see DeepWiki generated documentation:
-
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/agent0ai/agent-zero)
+[Giriş](#kişisel-organik-ve-öğrenen-bir-agent-framework) •
+[Kurulum](./docs/installation.md) •
+[Geliştirme](./docs/development.md) •
+[Genişletilebilirlik](./docs/extensibility.md) •
+[Bağlantı](./docs/connectivity.md) •
+[Nasıl güncellenir](./docs/installation.md#how-to-update-ayla-agent) •
+[Dokümantasyon](./docs/README.md) •
+[Kullanım](./docs/usage.md)
 
 </div>
 
 
 <div align="center">
 
-> ### 🚨 **IMPORTANT ANNOUNCEMENT** 🚨
+> ### 🚨 **ÖNEMLİ DUYURU** 🚨
 
-The original GitHub and DockerHub repositories for Agent Zero have been transferred to a new namespace:
+Ayla Agent'ın orijinal GitHub ve DockerHub depoları yeni bir isme taşınmıştır:
 
-- **GitHub & DockerHub:** `agent0ai/agent-zero`
+- **GitHub & DockerHub:** `ayla-agent/ayla-agent`
 
-From now on, please use this name for both `git clone` and `docker pull` commands.
+Şu andan itibaren, lütfen hem `git clone` hem de `docker pull` komutları için bu ismi kullanın.
 
 </div>
 
@@ -42,129 +38,129 @@ From now on, please use this name for both `git clone` and `docker pull` command
 
 
 
-## A personal, organic agentic framework that grows and learns with you
+## Kişisel, organik ve öğrenen bir agent framework## Kişisel, organik ve öğrenen bir agent framework
 
 
 
-- Agent Zero is not a predefined agentic framework. It is designed to be dynamic, organically growing, and learning as you use it.
-- Agent Zero is fully transparent, readable, comprehensible, customizable, and interactive.
-- Agent Zero uses the computer as a tool to accomplish its (your) tasks.
+- Ayla Agent önceden tanımlanmış bir agent framework değildir. Dinamik, organik olarak büyüyen ve kullandıkça öğrenen bir sistemdir.
+- Ayla Agent tamamen şeffaf, okunabilir, anlaşılır, özelleştirilebilir ve etkileşimlidir.
+- Ayla Agent görevlerini (sizin görevlerinizi) yerine getirmek için bilgisayarı bir araç olarak kullanır.
 
-# 💡 Key Features
+# 💡 Temel Özellikler
 
-1. **General-purpose Assistant**
+1. **Genel Amaçlı Asistan**
 
-- Agent Zero is not pre-programmed for specific tasks (but can be). It is meant to be a general-purpose personal assistant. Give it a task, and it will gather information, execute commands and code, cooperate with other agent instances, and do its best to accomplish it.
-- It has a persistent memory, allowing it to memorize previous solutions, code, facts, instructions, etc., to solve tasks faster and more reliably in the future.
+- Ayla Agent belirli görevler için önceden programlanmamıştır (ancak olabilir). Genel amaçlı kişisel bir asistan olmak üzere tasarlanmıştır. Bir görev verin, bilgi toplayacak, komutlar ve kodlar çalıştıracak, diğer agent örnekleriyle işbirliği yapacak ve görevi tamamlamak için elinden geleni yapacaktır.
+- Kalıcı bir hafızaya sahiptir, bu sayede gelecekte görevleri daha hızlı ve güvenilir bir şekilde çözmek için önceki çözümleri, kodları, gerçekleri, talimatları vb. ezberleyebilir.
 
-![Agent 0 Working](/docs/res/ui-screen-2.png)
+![Ayla Agent Çalışıyor](/docs/res/ui-screen-2.png)
 
-2. **Computer as a Tool**
+2. **Araç Olarak Bilgisayar**
 
-- Agent Zero uses the operating system as a tool to accomplish its tasks. It has no single-purpose tools pre-programmed. Instead, it can write its own code and use the terminal to create and use its own tools as needed.
-- The only default tools in its arsenal are online search, memory features, communication (with the user and other agents), and code/terminal execution. Everything else is created by the agent itself or can be extended by the user.
-- Tool usage functionality has been developed from scratch to be the most compatible and reliable, even with very small models.
-- **Default Tools:** Agent Zero includes tools like knowledge, code execution, and communication.
-- **Creating Custom Tools:** Extend Agent Zero's functionality by creating your own custom tools.
-- **Instruments:** Instruments are a new type of tool that allow you to create custom functions and procedures that can be called by Agent Zero.
+- Ayla Agent görevlerini yerine getirmek için işletim sistemini bir araç olarak kullanır. Önceden programlanmış tek amaçlı araçlara sahip değildir. Bunun yerine, ihtiyaç duyduğunda kendi araçlarını oluşturmak için kendi kodunu yazabilir ve terminali kullanabilir.
+- Cephaneliğindeki tek varsayılan araçlar çevrimiçi arama, hafıza özellikleri, iletişim (kullanıcı ve diğer agentlar ile) ve kod/terminal yürütmedir. Geri kalan her şey agent tarafından oluşturulur veya kullanıcı tarafından genişletilebilir.
+- Araç kullanımı işlevselliği, çok küçük modellerle bile en uyumlu ve güvenilir olacak şekilde sıfırdan geliştirilmiştir.
+- **Varsayılan Araçlar:** Ayla Agent bilgi, kod yürütme ve iletişim gibi araçları içerir.
+- **Özel Araçlar Oluşturma:** Kendi özel araçlarınızı oluşturarak Ayla Agent'ın işlevselliğini genişletin.
+- **Enstrümanlar:** Enstrümanlar, Ayla Agent tarafından çağrılabilecek özel fonksiyonlar ve prosedürler oluşturmanıza olanak tanıyan yeni bir araç türüdür.
 
-3. **Multi-agent Cooperation**
+3. **Çoklu-Agent İşbirliği**
 
-- Every agent has a superior agent giving it tasks and instructions. Every agent then reports back to its superior.
-- In the case of the first agent in the chain (Agent 0), the superior is the human user; the agent sees no difference.
-- Every agent can create its subordinate agent to help break down and solve subtasks. This helps all agents keep their context clean and focused.
+- Her agent, kendisine görevler ve talimatlar veren bir üst agenta sahiptir. Her agent daha sonra üstüne rapor verir.
+- Zincirdeki ilk agent (Ayla Agent) durumunda, üst insan kullanıcıdır; agent hiçbir fark görmez.
+- Her agent, alt görevleri bölmek ve çözmek için kendi alt agentını oluşturabilir. Bu, tüm agentların bağlamlarını temiz ve odaklı tutmalarına yardımcı olur.
 
 ![Multi-agent](docs/res/physics.png)
 ![Multi-agent 2](docs/res/physics-2.png)
 
-4. **Completely Customizable and Extensible**
+4. **Tamamen Özelleştirilebilir ve Genişletilebilir**
 
-- Almost nothing in this framework is hard-coded. Nothing is hidden. Everything can be extended or changed by the user.
-- The whole behavior is defined by a system prompt in the **prompts/default/agent.system.md** file. Change this prompt and change the framework dramatically.
-- The framework does not guide or limit the agent in any way. There are no hard-coded rails that agents have to follow.
-- Every prompt, every small message template sent to the agent in its communication loop can be found in the **prompts/** folder and changed.
-- Every default tool can be found in the **python/tools/** folder and changed or copied to create new predefined tools.
+- Bu frameworkte neredeyse hiçbir şey sabit kodlanmamıştır. Hiçbir şey gizli değildir. Her şey kullanıcı tarafından genişletilebilir veya değiştirilebilir.
+- Tüm davranış **prompts/default/agent.system.md** dosyasındaki bir sistem promptu tarafından tanımlanır. Bu promptu değiştirin ve frameworku dramatik bir şekilde değiştirin.
+- Framework agentı hiçbir şekilde yönlendirmez veya sınırlamaz. Agentların takip etmesi gereken sabit kodlanmış raylar yoktur.
+- Her prompt, agenta iletişim döngüsünde gönderilen her küçük mesaj şablonu **prompts/** klasöründe bulunabilir ve değiştirilebilir.
+- Her varsayılan araç **python/tools/** klasöründe bulunabilir ve değiştirilebilir veya yeni önceden tanımlanmış araçlar oluşturmak için kopyalanabilir.
 
 ![Prompts](/docs/res/prompts.png)
 
-5. **Communication is Key**
+5. **İletişim Anahtardır**
 
-- Give your agent a proper system prompt and instructions, and it can do miracles.
-- Agents can communicate with their superiors and subordinates, asking questions, giving instructions, and providing guidance. Instruct your agents in the system prompt on how to communicate effectively.
-- The terminal interface is real-time streamed and interactive. You can stop and intervene at any point. If you see your agent heading in the wrong direction, just stop and tell it right away.
-- There is a lot of freedom in this framework. You can instruct your agents to regularly report back to superiors asking for permission to continue. You can instruct them to use point-scoring systems when deciding when to delegate subtasks. Superiors can double-check subordinates' results and dispute. The possibilities are endless.
+- Agentınıza uygun bir sistem promptu ve talimatlar verin, mucizeler yaratabilir.
+- Agentlar üstleri ve altları ile iletişim kurabilir, sorular sorabilir, talimatlar verebilir ve rehberlik sağlayabilir. Agentlarınıza sistem promptunda etkili iletişim kurma talimatları verin.
+- Terminal arayüzü gerçek zamanlı olarak aktarılır ve etkileşimlidir. İstediğiniz zaman durabilir ve müdahale edebilirsiniz. Agentınızın yanlış yöne gittiğini görürseniz, hemen durdurun ve söyleyin.
+- Bu frameworkte çok fazla özgürlük vardır. Agentlarınıza düzenli olarak üstlerine rapor vermelerini ve devam etmek için izin istemelerini talimat verebilirsiniz. Alt görevleri ne zaman devredeceğine karar verirken puan verme sistemleri kullanmalarını talimat verebilirsiniz. Üstler, altların sonuçlarını çifte kontrol edebilir ve itiraz edebilir. Olasılıklar sonsuzdur.
 
-## 🚀 Things you can build with Agent Zero
+## 🚀 Ayla Agent ile Oluşturabileceğiniz Şeyler
 
-- **Development Projects** - `"Create a React dashboard with real-time data visualization"`
+- **Geliştirme Projeleri** - `"Gerçek zamanlı veri görselleştirmesi olan bir React dashboard oluştur"`
 
-- **Data Analysis** - `"Analyze last quarter's NVIDIA sales data and create trend reports"`
+- **Veri Analizi** - `"Geçen çeyreğin NVIDIA satış verilerini analiz et ve trend raporları oluştur"`
 
-- **Content Creation** - `"Write a technical blog post about microservices"`
+- **İçerik Oluşturma** - `"Mikroservisler hakkında teknik bir blog yazısı yaz"`
 
-- **System Admin** - `"Set up a monitoring system for our web servers"`
+- **Sistem Yönetimi** - `"Web sunucularımız için bir izleme sistemi kur"`
 
-- **Research** - `"Gather and summarize five recent AI papers about CoT prompting"`
+- **Araştırma** - `"CoT prompting hakkında beş yeni AI makalesini topla ve özetle"`
 
 
 
-# ⚙️ Installation
+# ⚙️ Kurulum
 
-Click to open a video to learn how to install Agent Zero:
+Ayla Agent'ı nasıl kuracağınızı öğrenmek için videoya tıklayın:
 
-[![Easy Installation guide](/docs/res/easy_ins_vid.png)](https://www.youtube.com/watch?v=w5v5Kjx51hs)
+[![Kolay Kurulum rehberi](/docs/res/easy_ins_vid.png)](https://www.youtube.com/watch?v=w5v5Kjx51hs)
 
-A detailed setup guide for Windows, macOS, and Linux with a video can be found in the Agent Zero Documentation at [this page](./docs/installation.md).
+Windows, macOS ve Linux için video içeren ayrıntılı bir kurulum kılavuzu Ayla Agent Dokümantasyonunda [bu sayfada](./docs/installation.md) bulunabilir.
 
-### ⚡ Quick Start
+### ⚡ Hızlı Başlangıç
 
 ```bash
-# Pull and run with Docker
+# Docker ile çekin ve çalıştırın
 
-docker pull agent0ai/agent-zero
-docker run -p 50001:80 agent0ai/agent-zero
+docker pull aylaagent/ayla-agent
+docker run -p 50001:80 aylaagent/ayla-agent
 
-# Visit http://localhost:50001 to start
+# Başlamak için http://localhost:50001 adresini ziyaret edin
 ```
 
-## 🐳 Fully Dockerized, with Speech-to-Text and TTS
+## 🐳 Konuşmadan Metne ve Metinden Konuşmaya Özellikli Tam Docker Desteği
 
 ![Settings](docs/res/settings-page-ui.png)
 
-- Customizable settings allow users to tailor the agent's behavior and responses to their needs.
-- The Web UI output is very clean, fluid, colorful, readable, and interactive; nothing is hidden.
-- You can load or save chats directly within the Web UI.
-- The same output you see in the terminal is automatically saved to an HTML file in **logs/** folder for every session.
+- Özelleştirilebilir ayarlar, kullanıcıların agentın davranışını ve yanıtlarını ihtiyaçlarına göre uyarlamalarına olanak tanır.
+- Web UI çıktısı çok temiz, akıcı, renkli, okunabilir ve etkileşimlidir; hiçbir şey gizli değildir.
+- Sohbetleri doğrudan Web UI içinden yükleyebilir veya kaydedebilirsiniz.
+- Terminalde gördüğünüz aynı çıktı, her oturum için otomatik olarak **logs/** klasörüne bir HTML dosyasına kaydedilir.
 
 ![Time example](/docs/res/time_example.jpg)
 
-- Agent output is streamed in real-time, allowing users to read along and intervene at any time.
-- No coding is required; only prompting and communication skills are necessary.
-- With a solid system prompt, the framework is reliable even with small models, including precise tool usage.
+- Agent çıktısı gerçek zamanlı olarak aktarılır, kullanıcıların okumalarına ve istedikleri zaman müdahale etmelerine olanak tanır.
+- Kodlama gerekli değildir; yalnızca promptlama ve iletişim becerileri gereklidir.
+- Sağlam bir sistem promptu ile, framework küçük modeller dahil olmak üzere güvenilirdir, hassas araç kullanımı da dahil.
 
-## 👀 Keep in Mind
+## 👀 Aklınızda Bulundurun
 
-1. **Agent Zero Can Be Dangerous!**
+1. **Ayla Agent Tehlikeli Olabilir!**
 
-- With proper instruction, Agent Zero is capable of many things, even potentially dangerous actions concerning your computer, data, or accounts. Always run Agent Zero in an isolated environment (like Docker) and be careful what you wish for.
+- Uygun talimatlarla, Ayla Agent bilgisayarınız, verileriniz veya hesaplarınızla ilgili potansiyel olarak tehlikeli eylemler de dahil olmak üzere birçok şeyi yapabilir. Ayla Agent'ı her zaman izole bir ortamda (Docker gibi) çalıştırın ve ne dilediğinize dikkat edin.
 
-2. **Agent Zero Is Prompt-based.**
+2. **Ayla Agent Prompt Tabanlıdır.**
 
-- The whole framework is guided by the **prompts/** folder. Agent guidelines, tool instructions, messages, utility AI functions, it's all there.
+- Tüm framework **prompts/** klasörü tarafından yönlendirilir. Agent yönergeleri, araç talimatları, mesajlar, yardımcı AI fonksiyonları, hepsi oradadır.
 
 
-## 📚 Read the Documentation
+## 📚 Dokümantasyonu Okuyun
 
-| Page | Description |
+| Sayfa | Açıklama |
 |-------|-------------|
-| [Installation](./docs/installation.md) | Installation, setup and configuration |
-| [Usage](./docs/usage.md) | Basic and advanced usage |
-| [Development](./docs/development.md) | Development and customization |
-| [Extensibility](./docs/extensibility.md) | Extending Agent Zero |
-| [Connectivity](./docs/connectivity.md) | External API endpoints, MCP server connections, A2A protocol |
-| [Architecture](./docs/architecture.md) | System design and components |
-| [Contributing](./docs/contribution.md) | How to contribute |
-| [Troubleshooting](./docs/troubleshooting.md) | Common issues and their solutions |
+| [Kurulum](./docs/installation.md) | Kurulum, yapılandırma ve ayarlar |
+| [Kullanım](./docs/usage.md) | Temel ve gelişmiş kullanım |
+| [Geliştirme](./docs/development.md) | Geliştirme ve özelleştirme |
+| [Genişletilebilirlik](./docs/extensibility.md) | Ayla Agent'ı genişletme |
+| [Bağlantı](./docs/connectivity.md) | Harici API uç noktaları, MCP sunucu bağlantıları, A2A protokolü |
+| [Mimari](./docs/architecture.md) | Sistem tasarımı ve bileşenler |
+| [Katkıda Bulunma](./docs/contribution.md) | Nasıl katkıda bulunulur |
+| [Sorun Giderme](./docs/troubleshooting.md) | Yaygın sorunlar ve çözümleri |
 
 
 ## 🎯 Changelog
@@ -196,7 +192,7 @@ docker run -p 50001:80 agent0ai/agent-zero
 ### v0.9.4 - Connectivity, UI
 [Release video](https://www.youtube.com/watch?v=C2BAdDOduIc)
 - External API endpoints
-- Streamable HTTP MCP A0 server
+- Streamable HTTP MCP AYLA server
 - A2A (Agent to Agent) protocol - server+client
 - New notifications system
 - New local terminal interface for stability
@@ -270,8 +266,8 @@ docker run -p 50001:80 agent0ai/agent-zero
 ### v0.8.5 - **MCP Server + Client**
 [Release video](https://youtu.be/pM5f4Vz3_IQ)
 
-- Agent Zero can now act as MCP Server
-- Agent Zero can use external MCP servers as tools
+- Ayla Agent can now act as MCP Server
+- Ayla Agent can use external MCP servers as tools
 
 ### v0.8.4.1 - 2
 Default models set to gpt-4.1
@@ -338,6 +334,6 @@ Default models set to gpt-4.1
 
 ## 🤝 Community and Support
 
-- [Join our Discord](https://discord.gg/B8KZKNsPpj) for live discussions or [visit our Skool Community](https://www.skool.com/agent-zero).
-- [Follow our YouTube channel](https://www.youtube.com/@AgentZeroFW) for hands-on explanations and tutorials
-- [Report Issues](https://github.com/agent0ai/agent-zero/issues) for bug fixes and features
+- [Join our Discord](https://discord.gg/B8KZKNsPpj) for live discussions or [visit our Skool Community](https://www.skool.com/ayla-agent).
+- [Follow our YouTube channel](https://www.youtube.com/@AYLA_AGENTFW) for hands-on explanations and tutorials
+- [Report Issues](https://github.com/aylaagent/ayla-agent/issues) for bug fixes and features

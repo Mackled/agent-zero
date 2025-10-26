@@ -1,4 +1,4 @@
-# Supported model providers for Agent Zero
+# Supported model providers for Ayla Agent
 # ---------------------------------------
 #
 # Each provider type ("chat", "embedding") contains a mapping of provider IDs
@@ -17,11 +17,11 @@
 #                     This is useful for `api_base`, `extra_headers`, etc.
 
 chat:
-  a0_venice:
-    name: Agent Zero Venice.ai
+  AYLA_venice:
+    name: Ayla Agent Venice.ai
     litellm_provider: openai
     kwargs:
-      api_base: https://api.agent-zero.ai/venice/v1
+      api_base: https://api.ayla-agent.ai/venice/v1
       venice_parameters:
         include_venice_system_prompt: false
   anthropic:
@@ -66,8 +66,8 @@ chat:
     litellm_provider: openrouter
     kwargs:
       extra_headers:
-        "HTTP-Referer": "https://agent-zero.ai/"
-        "X-Title": "Agent Zero"
+        "HTTP-Referer": "https://ayla-agent.ai/"
+        "X-Title": "Ayla Agent"
   sambanova:
     name: Sambanova
     litellm_provider: sambanova

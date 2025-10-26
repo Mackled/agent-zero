@@ -263,15 +263,15 @@ def run():
     process.set_server(server)
     server.log_startup()
 
-    # Start init_a0 in a background thread when server starts
-    # threading.Thread(target=init_a0, daemon=True).start()
-    init_a0()
+    # Start init_AYLA in a background thread when server starts
+    # threading.Thread(target=init_AYLA, daemon=True).start()
+    init_AYLA()
 
     # run the server
     server.serve_forever()
 
 
-def init_a0():
+def init_AYLA():
     # initialize contexts and MCP
     init_chats = initialize.initialize_chats()
     # only wait for init chats, otherwise they would seem to disappear for a while on restart

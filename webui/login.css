@@ -1,6 +1,9 @@
+/* Ayla Agent Login Page - Glassmorphism Design */
+
 body {
-    background-color: #131313;
-    color: #d4d4d4;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    background-attachment: fixed;
+    color: #e8e8f0;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
     display: flex;
     justify-content: center;
@@ -17,24 +20,51 @@ body {
 }
 
 .login-form {
-    background-color: #1a1a1a;
-    padding: 2rem;
-    border-radius: 1.125rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    background: rgba(26, 26, 46, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
 }
 
 .logo {
     width: 80px;
     height: 80px;
-    border-radius: 0.3125rem; /* Match the main page logo style */
-    margin-bottom: 1rem;
+    border-radius: 50%;
+    border: 3px solid rgba(124, 58, 237, 0.5);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 h2 {
     margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .input-group {
@@ -45,37 +75,80 @@ h2 {
 .input-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #737a81;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    font-weight: 500;
 }
 
 .input-group input {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #444444a8;
-    border-radius: 0.5rem;
-    background-color: #131313;
-    color: #d4d4d4;
+    padding: 0.875rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #e8e8f0;
     font-size: 1rem;
-    box-sizing: border-box; /* Added for consistent padding */
+    box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-group input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(124, 58, 237, 0.5);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1), 0 0 20px rgba(124, 58, 237, 0.3);
 }
 
 button {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.875rem;
     border: none;
-    border-radius: 0.5rem;
-    background-color: #4248f1;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
     color: white;
     font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
 }
 
 button:hover {
-    background-color: #353bc5;
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 .error {
-    color: #cf6679;
+    color: #fca5a5;
     margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(239, 68, 68, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 0.625rem;
+    font-size: 0.875rem;
+}
 }

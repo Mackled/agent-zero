@@ -8,31 +8,31 @@
 }
 
 :root {
-  /* Dark mode */
-  --color-background-dark: #131313;
-  --color-text-dark: #d4d4d4;
-  --color-primary-dark: #737a81;
-  --color-secondary-dark: #656565;
-  --color-accent-dark: #cf6679;
-  --color-message-bg-dark: #2d2d2d;
-  --color-message-text-dark: #e0e0e0;
-  --color-panel-dark: #1a1a1a;
-  --color-border-dark: #444444a8;
-  --color-input-dark: #131313;
-  --color-input-focus-dark: #101010;
+  /* Ayla Brand - Glassmorphism Dark Mode */
+  --color-background-dark: #0f0f23;
+  --color-text-dark: #e8e8f0;
+  --color-primary-dark: #7C3AED;
+  --color-secondary-dark: #EC4899;
+  --color-accent-dark: #10B981;
+  --color-message-bg-dark: rgba(45, 45, 70, 0.6);
+  --color-message-text-dark: #e8e8f0;
+  --color-panel-dark: rgba(26, 26, 46, 0.7);
+  --color-border-dark: rgba(255, 255, 255, 0.1);
+  --color-input-dark: rgba(255, 255, 255, 0.05);
+  --color-input-focus-dark: rgba(255, 255, 255, 0.1);
 
-  /* Light mode */
-  --color-background-light: #dbdbdb;
-  --color-text-light: #333333;
-  --color-primary-light: #384653;
-  --color-secondary-light: #e8eaf6;
-  --color-accent-light: #b00020;
-  --color-message-bg-light: #ffffff;
-  --color-message-text-light: #333333;
-  --color-panel-light: #f0f0f0;
-  --color-border-light: #e0e0e0c7;
-  --color-input-light: #e4e4e4;
-  --color-input-focus-light: #dadada;
+  /* Ayla Brand - Glassmorphism Light Mode */
+  --color-background-light: #f0f2f5;
+  --color-text-light: #1a1a2e;
+  --color-primary-light: #7C3AED;
+  --color-secondary-light: #EC4899;
+  --color-accent-light: #10B981;
+  --color-message-bg-light: rgba(255, 255, 255, 0.7);
+  --color-message-text-light: #1a1a2e;
+  --color-panel-light: rgba(255, 255, 255, 0.6);
+  --color-border-light: rgba(0, 0, 0, 0.1);
+  --color-input-light: rgba(255, 255, 255, 0.8);
+  --color-input-focus-light: rgba(255, 255, 255, 0.95);
 
   /* Default to dark mode */
   --color-background: var(--color-background-dark);
@@ -64,12 +64,11 @@
   --font-family-main: "Rubik", Arial, Helvetica, sans-serif;
   --font-family-code: "Roboto Mono", monospace;
 
-  /* Other variables */
-  --border-radius: 1.125rem;
+  /* Glassmorphism Effects */
+  --border-radius: 1.25rem;
   --transition-speed: 0.3s;
-  --svg-filter: brightness(0) saturate(100%) var(--color-primary-filter);
-  --color-primary-filter: invert(73%) sepia(17%) saturate(360%)
-    hue-rotate(177deg) brightness(87%) contrast(85%);
+  --glass-blur: blur(12px);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 /* Light mode class */
@@ -90,7 +89,8 @@
 /* Reset and Base Styles */
 body,
 html {
-  background-color: var(--color-background);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-family-main);
   width: 100%;
@@ -101,8 +101,14 @@ html {
   padding: 0;
   overflow: hidden;
   position: fixed;
-  -webkit-font-smoothing: antialiased; /* Improve font rendering */
-  -moz-osx-font-smoothing: grayscale; /* Improve font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.light-mode body,
+.light-mode html {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
 }
 
 body {
@@ -151,10 +157,12 @@ img {
   scroll-behavior: smooth;
 }
 
-/* Left Panel */
+/* Left Panel - Glassmorphism */
 #left-panel {
-  background-color: var(--color-panel);
-  border-right: 1px solid var(--color-border);
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   box-sizing: border-box;
   display: -webkit-flex;
   display: flex;
@@ -165,8 +173,15 @@ img {
   width: 250px;
   min-width: 250px;
   color: var(--color-text);
-  box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   user-select: none;
+}
+
+.light-mode #left-panel {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #left-panel.hidden {
@@ -461,7 +476,7 @@ h4 {
   margin: auto 0;
 } */
 
-#a0version {
+#AYLAversion {
   color: var(--color-text);
   opacity: 0.7;
   font-size: 0.7rem;

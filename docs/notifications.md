@@ -1,6 +1,6 @@
-# Agent Zero Notifications
+# Ayla Agent Notifications
 
-Quick guide for using the notification system in Agent Zero.
+Quick guide for using the notification system in Ayla Agent.
 
 ## Backend Usage
 

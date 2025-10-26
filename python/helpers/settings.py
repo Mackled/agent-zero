@@ -172,7 +172,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "chat_model_provider",
             "title": "Chat model provider",
-            "description": "Select provider for main chat model used by Agent Zero",
+            "description": "Select provider for main chat model used by Ayla Agent",
             "type": "select",
             "value": settings["chat_model_provider"],
             "options": cast(list[FieldOption], get_providers("chat")),
@@ -274,7 +274,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     chat_model_section: SettingsSection = {
         "id": "chat_model",
         "title": "Chat Model",
-        "description": "Selection and settings for main chat model used by Agent Zero",
+        "description": "Selection and settings for main chat model used by Ayla Agent",
         "fields": chat_model_fields,
         "tab": "agent",
     }
@@ -424,7 +424,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     embed_model_section: SettingsSection = {
         "id": "embed_model",
         "title": "Embedding Model",
-        "description": f"Settings for the embedding model used by Agent Zero.<br><h4>⚠️ No need to change</h4>The default HuggingFace model {default_settings['embed_model_name']} is preloaded and runs locally within the docker container and there's no need to change it unless you have a specific requirements for embedding.",
+        "description": f"Settings for the embedding model used by Ayla Agent.<br><h4>⚠️ No need to change</h4>The default HuggingFace model {default_settings['embed_model_name']} is preloaded and runs locally within the docker container and there's no need to change it unless you have a specific requirements for embedding.",
         "fields": embed_model_fields,
         "tab": "agent",
     }
@@ -524,7 +524,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     browser_model_section: SettingsSection = {
         "id": "browser_model",
         "title": "Web Browser Model",
-        "description": "Settings for the web browser model. Agent Zero uses <a href='https://github.com/browser-use/browser-use' target='_blank'>browser-use</a> agentic framework to handle web interactions.",
+        "description": "Settings for the web browser model. Ayla Agent uses <a href='https://github.com/browser-use/browser-use' target='_blank'>browser-use</a> agentic framework to handle web interactions.",
         "fields": browser_model_fields,
         "tab": "agent",
     }
@@ -570,7 +570,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     auth_section: SettingsSection = {
         "id": "auth",
         "title": "Authentication",
-        "description": "Settings for authentication to use Agent Zero Web UI.",
+        "description": "Settings for authentication to use Ayla Agent Web UI.",
         "fields": auth_fields,
         "tab": "external",
     }
@@ -593,7 +593,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     api_keys_section: SettingsSection = {
         "id": "api_keys",
         "title": "API Keys",
-        "description": "API keys for model providers and services used by Agent Zero. You can set multiple API keys separated by a comma (,). They will be used in round-robin fashion.<br>For more information abou Agent Zero Venice provider, see <a href='http://agent-zero.ai/?community/api-dashboard/about' target='_blank'>Agent Zero Venice</a>.",
+        "description": "API keys for model providers and services used by Ayla Agent. You can set multiple API keys separated by a comma (,). They will be used in round-robin fashion.<br>For more information abou Ayla Agent Venice provider, see <a href='http://ayla-agent.ai/?community/api-dashboard/about' target='_blank'>Ayla Agent Venice</a>.",
         "fields": api_keys_fields,
         "tab": "external",
     }
@@ -690,7 +690,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "memory_recall_enabled",
             "title": "Memory auto-recall enabled",
-            "description": "Agent Zero will automatically recall memories based on convesation context.",
+            "description": "Ayla Agent will automatically recall memories based on convesation context.",
             "type": "switch",
             "value": settings["memory_recall_enabled"],
         }
@@ -776,7 +776,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "memory_recall_memories_max_result",
             "title": "Memory auto-recall max memories to use",
-            "description": "The maximum number of memories to inject into A0's context window.",
+            "description": "The maximum number of memories to inject into AYLA's context window.",
             "type": "number",
             "value": settings["memory_recall_memories_max_result"],
         }
@@ -796,7 +796,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "memory_recall_solutions_max_result",
             "title": "Memory auto-recall max solutions to use",
-            "description": "The maximum number of solutions to inject into A0's context window.",
+            "description": "The maximum number of solutions to inject into AYLA's context window.",
             "type": "number",
             "value": settings["memory_recall_solutions_max_result"],
         }
@@ -806,7 +806,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "memory_memorize_enabled",
             "title": "Auto-memorize enabled",
-            "description": "A0 will automatically memorize facts and solutions from conversation history.",
+            "description": "AYLA will automatically memorize facts and solutions from conversation history.",
             "type": "switch",
             "value": settings["memory_memorize_enabled"],
         }
@@ -816,7 +816,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "memory_memorize_consolidation",
             "title": "Auto-memorize AI consolidation",
-            "description": "A0 will automatically consolidate similar memories using utility LLM. Improves memory quality over time, adds 2 utility LLM calls per memory.",
+            "description": "AYLA will automatically consolidate similar memories using utility LLM. Improves memory quality over time, adds 2 utility LLM calls per memory.",
             "type": "switch",
             "value": settings["memory_memorize_consolidation"],
         }
@@ -838,7 +838,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     memory_section: SettingsSection = {
         "id": "memory",
         "title": "Memory",
-        "description": "Configuration of A0's memory system. A0 memorizes and recalls memories automatically to help it's context awareness.",
+        "description": "Configuration of AYLA's memory system. AYLA memorizes and recalls memories automatically to help it's context awareness.",
         "fields": memory_fields,
         "tab": "agent",
     }
@@ -861,7 +861,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         #     {
         #         "id": "rfc_auto_docker",
         #         "title": "RFC Auto Docker Management",
-        #         "description": "Automatically create dockerized instance of A0 for RFCs using this instance's code base and, settings and .env.",
+        #         "description": "Automatically create dockerized instance of AYLA for RFCs using this instance's code base and, settings and .env.",
         #         "type": "text",
         #         "value": settings["rfc_auto_docker"],
         #     }
@@ -871,7 +871,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
             {
                 "id": "rfc_url",
                 "title": "RFC Destination URL",
-                "description": "URL of dockerized A0 instance for remote function calls. Do not specify port here.",
+                "description": "URL of dockerized AYLA instance for remote function calls. Do not specify port here.",
                 "type": "text",
                 "value": settings["rfc_url"],
             }
@@ -896,7 +896,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
             {
                 "id": "rfc_port_http",
                 "title": "RFC HTTP port",
-                "description": "HTTP port for dockerized instance of A0.",
+                "description": "HTTP port for dockerized instance of AYLA.",
                 "type": "text",
                 "value": settings["rfc_port_http"],
             }
@@ -906,7 +906,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
             {
                 "id": "rfc_port_ssh",
                 "title": "RFC SSH port",
-                "description": "SSH port for dockerized instance of A0.",
+                "description": "SSH port for dockerized instance of AYLA.",
                 "type": "text",
                 "value": settings["rfc_port_ssh"],
             }
@@ -915,7 +915,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     dev_section: SettingsSection = {
         "id": "dev",
         "title": "Development",
-        "description": "Parameters for A0 framework development. RFCs (remote function calls) are used to call functions on another A0 instance. You can develop and debug A0 natively on your local system while redirecting some functions to A0 instance in docker. This is crucial for development as A0 needs to run in standardized environment to support all features.",
+        "description": "Parameters for AYLA framework development. RFCs (remote function calls) are used to call functions on another AYLA instance. You can develop and debug AYLA natively on your local system while redirecting some functions to AYLA instance in docker. This is crucial for development as AYLA needs to run in standardized environment to support all features.",
         "fields": dev_fields,
         "tab": "developer",
     }
@@ -1102,7 +1102,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     mcp_client_section: SettingsSection = {
         "id": "mcp_client",
         "title": "External MCP Servers",
-        "description": "Agent Zero can use external MCP servers, local or remote as tools.",
+        "description": "Ayla Agent can use external MCP servers, local or remote as tools.",
         "fields": mcp_client_fields,
         "tab": "mcp",
     }
@@ -1147,8 +1147,8 @@ def convert_out(settings: Settings) -> SettingsOutput:
     mcp_server_fields.append(
         {
             "id": "mcp_server_enabled",
-            "title": "Enable A0 MCP Server",
-            "description": "Expose Agent Zero as an SSE/HTTP MCP server. This will make this A0 instance available to MCP clients.",
+            "title": "Enable AYLA MCP Server",
+            "description": "Expose Ayla Agent as an SSE/HTTP MCP server. This will make this AYLA instance available to MCP clients.",
             "type": "switch",
             "value": settings["mcp_server_enabled"],
         }
@@ -1167,8 +1167,8 @@ def convert_out(settings: Settings) -> SettingsOutput:
 
     mcp_server_section: SettingsSection = {
         "id": "mcp_server",
-        "title": "A0 MCP Server",
-        "description": "Agent Zero can be exposed as an SSE MCP server. See <a href=\"javascript:openModal('settings/mcp/server/example.html')\">connection example</a>.",
+        "title": "AYLA MCP Server",
+        "description": "Ayla Agent can be exposed as an SSE MCP server. See <a href=\"javascript:openModal('settings/mcp/server/example.html')\">connection example</a>.",
         "fields": mcp_server_fields,
         "tab": "mcp",
     }
@@ -1180,7 +1180,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "a2a_server_enabled",
             "title": "Enable A2A server",
-            "description": "Expose Agent Zero as A2A server. This allows other agents to connect to A0 via A2A protocol.",
+            "description": "Expose Ayla Agent as A2A server. This allows other agents to connect to AYLA via A2A protocol.",
             "type": "switch",
             "value": settings["a2a_server_enabled"],
         }
@@ -1188,8 +1188,8 @@ def convert_out(settings: Settings) -> SettingsOutput:
 
     a2a_section: SettingsSection = {
         "id": "a2a_server",
-        "title": "A0 A2A Server",
-        "description": "Agent Zero can be exposed as an A2A server. See <a href=\"javascript:openModal('settings/a2a/a2a-connection.html')\">connection example</a>.",
+        "title": "AYLA A2A Server",
+        "description": "Ayla Agent can be exposed as an A2A server. See <a href=\"javascript:openModal('settings/a2a/a2a-connection.html')\">connection example</a>.",
         "fields": a2a_fields,
         "tab": "mcp",
     }
@@ -1202,7 +1202,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
         {
             "id": "external_api_examples",
             "title": "API Examples",
-            "description": "View examples for using Agent Zero's external API endpoints with API key authentication.",
+            "description": "View examples for using Ayla Agent's external API endpoints with API key authentication.",
             "type": "button",
             "value": "Show API Examples",
         }
@@ -1211,7 +1211,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     external_api_section: SettingsSection = {
         "id": "external_api",
         "title": "External API",
-        "description": "Agent Zero provides external API endpoints for integration with other applications. "
+        "description": "Ayla Agent provides external API endpoints for integration with other applications. "
                        "These endpoints use API key authentication and support text messages and file attachments.",
         "fields": external_api_fields,
         "tab": "external",
@@ -1245,7 +1245,7 @@ def convert_out(settings: Settings) -> SettingsOutput:
     backup_section: SettingsSection = {
         "id": "backup_restore",
         "title": "Backup & Restore",
-        "description": "Backup and restore Agent Zero data and configurations "
+        "description": "Backup and restore Ayla Agent data and configurations "
         "using glob pattern-based file selection.",
         "fields": backup_fields,
         "tab": "backup",

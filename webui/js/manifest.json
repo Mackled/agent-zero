@@ -1,6 +1,6 @@
 {
-  "name": "Agent Zero",
-  "short_name": "Agent Zero",
+  "name": "Ayla Agent",
+  "short_name": "Ayla Agent",
   "description": "Autonomous AI agent",
   "start_url": "/",
   "display": "standalone",
