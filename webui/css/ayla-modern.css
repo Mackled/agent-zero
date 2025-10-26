@@ -1,0 +1,615 @@
+/* ═══════════════════════════════════════════════════════════
+   AYLA AGENT - RADIKAL YENİ TASARIM
+   Modern, Minimal, Temiz - Sıfırdan Tasarım
+   ═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL RESET & BASE
+   ═══════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Ayla Modern Colors */
+  --ayla-primary: #DC2626;
+  --ayla-primary-hover: #EF4444;
+  --ayla-secondary: #EF4444;
+  --ayla-accent: #B91C1C;
+  
+  /* Backgrounds */
+  --bg-primary: #0A0A0F;
+  --bg-secondary: #13131A;
+  --bg-tertiary: #1C1C24;
+  
+  /* Glass Effects */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.06);
+  
+  /* Text */
+  --text-primary: #FFFFFF;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  
+  /* Effects */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.3);
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body, html {
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, #0A0A0F 0%, #13131A 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HAMBURGER MENU - MODERN
+   ═══════════════════════════════════════════════════════════ */
+
+.ayla-hamburger {
+  position: fixed;
+  top: var(--space-lg);
+  left: var(--space-lg);
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: 0;
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-base);
+}
+
+.ayla-hamburger:hover {
+  background: var(--glass-hover);
+  border-color: var(--ayla-primary);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.05);
+}
+
+.ayla-hamburger:hover .hamburger-line {
+  background: var(--ayla-primary);
+}
+
+.ayla-hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.ayla-hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.ayla-hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LOGO - MODERN TEXT
+   ═══════════════════════════════════════════════════════════ */
+
+.ayla-logo-container {
+  position: fixed;
+  top: var(--space-lg);
+  left: 80px;
+  z-index: 1000;
+}
+
+.ayla-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm) var(--space-lg);
+  background: linear-gradient(135deg, var(--ayla-primary), var(--ayla-secondary));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  cursor: pointer;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.ayla-logo:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SIDEBAR - RADIKAL YENİ TASARIM
+   ═══════════════════════════════════════════════════════════ */
+
+.ayla-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  background: var(--glass-bg);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-right: 1px solid var(--glass-border);
+  display: flex;
+  flex-direction: column;
+  padding: 100px var(--space-lg) var(--space-lg);
+  transform: translateX(-100%);
+  transition: transform var(--transition-slow);
+  z-index: 900;
+  overflow: hidden;
+}
+
+.ayla-sidebar.open {
+  transform: translateX(0);
+}
+
+/* Sidebar Header */
+.ayla-sidebar-header {
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--ayla-primary), var(--ayla-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-xs);
+}
+
+.sidebar-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* Quick Actions */
+.ayla-quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.ayla-action-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.ayla-action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.2));
+  transition: width var(--transition-slow);
+}
+
+.ayla-action-btn:hover::before {
+  width: 100%;
+}
+
+.ayla-action-btn:hover {
+  border-color: var(--ayla-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.ayla-action-primary {
+  background: linear-gradient(135deg, var(--ayla-primary), var(--ayla-primary-hover));
+  border: none;
+}
+
+.ayla-action-primary:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Tabs - Modern Minimal */
+.ayla-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  padding: 4px;
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
+}
+
+.ayla-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.ayla-tab.active {
+  background: var(--ayla-primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.tab-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.tab-badge {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Content Area - Clean List */
+.ayla-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: var(--space-lg);
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
+}
+
+.ayla-sidebar-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ayla-sidebar-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ayla-sidebar-content::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: var(--radius-full);
+}
+
+.ayla-sidebar-content::-webkit-scrollbar-thumb:hover {
+  background: var(--glass-hover);
+}
+
+/* List Items - Ultra Clean */
+.ayla-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.ayla-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.ayla-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--ayla-primary);
+  transform: scaleY(0);
+  transition: transform var(--transition-base);
+}
+
+.ayla-list-item:hover::before,
+.ayla-list-item.active::before {
+  transform: scaleY(1);
+}
+
+.ayla-list-item:hover {
+  background: var(--glass-hover);
+  border-color: var(--ayla-primary);
+  transform: translateX(4px);
+}
+
+.ayla-list-item.active {
+  background: rgba(124, 58, 237, 0.1);
+  border-color: var(--ayla-primary);
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+}
+
+.ayla-list-item.active .item-icon {
+  color: var(--ayla-primary);
+}
+
+.item-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.item-title {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-status {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.item-action {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.ayla-list-item:hover .item-action {
+  opacity: 1;
+}
+
+.item-action:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+}
+
+.item-action svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Empty State */
+.ayla-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}
+
+.ayla-empty-state p {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Sidebar Footer */
+.ayla-sidebar-footer {
+  border-top: 1px solid var(--glass-border);
+  padding-top: var(--space-lg);
+}
+
+.ayla-utility-menu {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.utility-btn {
+  flex: 1;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.utility-btn:hover {
+  background: var(--glass-hover);
+  border-color: var(--ayla-primary);
+  color: var(--ayla-primary);
+  transform: translateY(-2px);
+}
+
+.utility-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ayla-version {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .ayla-sidebar {
+    width: 100%;
+    max-width: 320px;
+  }
+  
+  .ayla-hamburger {
+    top: var(--space-md);
+    left: var(--space-md);
+  }
+  
+  .ayla-logo-container {
+    top: var(--space-md);
+    left: 70px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ChatGPT-like Main Layout
+   ═══════════════════════════════════════════════════════════ */
+
+/* Hide legacy sidebar and header icons */
+#left-panel, .icons-section { display: none !important; }
+
+/* Expand right panel full width */
+#right-panel { margin-left: 0 !important; width: 100%; display: flex; flex-direction: column; }
+
+/* Centered chat column */
+#chat-history { max-width: 820px; margin: 0 auto; padding: 24px 16px 140px; gap: 12px; }
+
+/* Sticky bottom input, centered like ChatGPT */
+#input-section { position: fixed; left: 0; right: 0; bottom: 16px; display: flex; justify-content: center; pointer-events: none; }
+#input-section .input-row { width: min(820px, calc(100% - 32px)); background: rgba(26,26,46,0.7); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); pointer-events: auto; }
+
+/* Hide clutter below input */
+.text-buttons-row, #time-date-container { display: none !important; }
+
+/* Chat buttons simplified */
+#chat-buttons-wrapper { gap: 8px; }
+.chat-button { width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); }
+.chat-button:hover { background: rgba(255,255,255,0.12); }
+
+/* Chat textarea */
+#chat-input { min-height: 44px; max-height: 200px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); box-shadow: none; }
+#expand-button { right: 12px; top: 12px; }
+
+/* Message bubbles approximating ChatGPT */
+.message { border-radius: 16px; padding: 12px 14px; }
+.user-container .message, .message-user { background: rgba(124,58,237,0.18) !important; border: 1px solid rgba(124,58,237,0.28) !important; }
+.ai-container .message, .message-ai { background: rgba(255,255,255,0.06) !important; border: 1px solid rgba(255,255,255,0.08) !important; }
+
+/* Constrain message width and center flow */
+.user-container, .ai-container, .center-container { max-width: 820px; margin-left: auto; margin-right: auto; }
+.user-container { justify-content: flex-end; }
+
+/* Clean scrollbars */
+#chat-history::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); }
