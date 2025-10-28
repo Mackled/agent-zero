@@ -1,0 +1,16 @@
+/* Main CSS file for Ayla Agent */
+/* This file imports all the component-specific CSS files */
+
+@import url('ayla-glassmorphism.css');
+@import url('../index.css');
+@import url('messages.css');
+@import url('../components/messages/action-buttons/simple-action-buttons.css');
+@import url('toast.css');
+@import url('settings.css');
+@import url('file_browser.css');
+@import url('modals.css');
+@import url('modals2.css');
+@import url('speech.css');
+@import url('history.css');
+@import url('scheduler-datepicker.css');
+@import url('notification.css');

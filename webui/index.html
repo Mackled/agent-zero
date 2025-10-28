@@ -6,96 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Ayla Agent</title>
     <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
-    <link rel="stylesheet" href="css/ayla-glassmorphism.css">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="css/messages.css">
-    <link rel="stylesheet" href="components/messages/action-buttons/simple-action-buttons.css">
-    <link rel="stylesheet" href="css/toast.css">
-    <link rel="stylesheet" href="css/settings.css">
-    <link rel="stylesheet" href="css/file_browser.css">
-    <link rel="stylesheet" href="css/modals.css">
-    <link rel="stylesheet" href="css/modals2.css">
-    <link rel="stylesheet" href="css/speech.css">
-    <link rel="stylesheet" href="css/history.css">
-    <link rel="stylesheet" href="css/scheduler-datepicker.css">
-    <link rel="stylesheet" href="css/notification.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <!-- Flatpickr for datetime picker -->
     <link rel="stylesheet" href="vendor/flatpickr/flatpickr.min.css">
     <script src="vendor/flatpickr/flatpickr.min.js"></script>
 
-    <script>
-        globalThis.safeCall = function (name, ...args) {
-            if (window[name]) window[name](...args)
-        }
-    </script>
-
-    <!-- Pre-initialize schedulerSettings to ensure Alpine doesn't miss it -->
-    <script>
-        // Pre-define schedulerSettings skeleton to ensure it's available to Alpine
-        globalThis.schedulerSettings = function () {
-            return {
-                tasks: [],
-                isLoading: true,
-                selectedTask: null,
-                expandedTaskId: null,
-                sortField: 'name',
-                sortDirection: 'asc',
-                filterType: 'all',
-                filterState: 'all',
-                pollingInterval: null,
-                pollingActive: false,
-                editingTask: {
-                    name: '',
-                    type: 'scheduled',
-                    state: 'idle',
-                    schedule: {
-                        minute: '*',
-                        hour: '*',
-                        day: '*',
-                        month: '*',
-                        weekday: '*',
-                        timezone: ''
-                    },
-                    token: '',
-                    plan: {
-                        todo: [],
-                        in_progress: null,
-                        done: []
-                    },
-                    system_prompt: '',
-                    prompt: '',
-                    attachments: []
-                },
-                isCreating: false,
-                isEditing: false,
-                showLoadingState: false,
-                viewMode: 'list',
-                selectedTaskForDetail: null,
-                attachmentsText: '',
-                filteredTasks: [],
-                // Minimal init to avoid errors
-                init() {
-                    console.log('Basic schedulerSettings initialized');
-                    // Watch for task type changes
-                    this.$watch('editingTask.type', (newType) => {
-                        if (newType === 'planned') {
-                            // When switching to planned task type, initialize the datetime picker
-                            this.$nextTick(() => {
-                                if (this.initFlatpickr) {
-                                    if (this.isCreating) {
-                                        this.initFlatpickr('create');
-                                    } else if (this.isEditing) {
-                                        this.initFlatpickr('edit');
-                                    }
-                                }
-                            });
-                        }
-                    });
-                }
-            };
-        };
-    </script>
+    <!-- Load helper functions first -->
+    <script src="js/helpers.js"></script>
 
     <!-- Load module scripts first -->
     <script type="module" src="js/scheduler.js"></script>
@@ -126,36 +44,37 @@
     <!-- Link the PWA manifest file -->
     <link rel="manifest" href="js/manifest.json">
 
-    <!-- Non-module scripts after Alpine.js -->
-    <script type="text/javascript" src="js/settings.js"></script>
-    <script type="text/javascript" src="js/file_browser.js"></script>
-    <script type="text/javascript" src="js/modal.js"></script>
+    <!-- Validation and initialization scripts -->
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/init.js"></script>
 </head>
 
 <body class="dark-mode device-pointer">
     <div class="container">
-        <div id="sidebar-overlay" class="sidebar-overlay hidden"></div>
-        <div class="icons-section" id="hide-button" x-data="{ connected: true }">
-            <!--Sidebar-->
-            <!-- Sidebar Toggle Button -->
-            <button id="toggle-sidebar" class="toggle-sidebar-button" aria-label="Toggle Sidebar" aria-expanded="false">
-                <span aria-hidden="true">
-                    <!-- Hamburger Icon -->
-                    <svg id="sidebar-hamburger-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                        viewBox="0 0 24 24" fill="CurrentColor">
-                        <path d="M3 13h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V7H3v2z"></path>
-                    </svg>
-                </span>
-            </button>
+        <div id="sidebar-overlay" class="sidebar-overlay hidden" aria-hidden="true"></div>
+        <header class="app-header" role="banner">
+            <div class="icons-section" id="hide-button" x-data="{ connected: true }">
+                <!--Sidebar-->
+                <!-- Sidebar Toggle Button -->
+                <button id="toggle-sidebar" class="toggle-sidebar-button" aria-label="Toggle Sidebar Navigation" aria-expanded="false" aria-controls="left-panel">
+                    <span aria-hidden="true">
+                        <!-- Hamburger Icon -->
+                        <svg id="sidebar-hamburger-svg" xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                            viewBox="0 0 24 24" fill="CurrentColor" aria-hidden="true">
+                            <path d="M3 13h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V7H3v2z"></path>
+                        </svg>
+                    </span>
+                </button>
 
-            <div id="logo-container">
-                <a href="https://github.com/aylaagent/ayla-agent" target="_blank" rel="noopener noreferrer">
-                    <img src="./public/splash.jpg" alt="AYLA" width="22" height="22">
-                </a>
+                <div id="logo-container" aria-label="Ayla Agent Application">
+                    <a href="https://github.com/aylaagent/ayla-agent" target="_blank" rel="noopener noreferrer" aria-label="Visit Ayla Agent on GitHub">
+                        <img src="./public/splash.jpg" alt="AYLA Agent Logo" width="22" height="22">
+                    </a>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <div id="left-panel" class="panel">
+        <nav id="left-panel" class="panel" aria-label="Main Navigation" role="navigation">
             <!--Sidebar upper elements-->
             <div class="left-panel-top">
                 <div class="config-section" x-data="{ showQuickActions: true }">
@@ -346,8 +265,8 @@
                     <span id="AYLAversion">Ayla Agent v{{version_no}} {{version_time}}</span>
                 </div>
             </div>
-        </div>
-        <div id="right-panel" class="panel">
+        </nav>
+        <main id="right-panel" class="panel" role="main" aria-label="Main Content Area">
             <!--Chat-->
             <div id="time-date-container">
                 <div id="time-date"></div>
@@ -1749,20 +1668,10 @@
     </div>
 
     <!-- Drag and Drop Overlay Component -->
-    <x-component path="chat/attachments/dragDropOverlay.html"></x-component>
+    <!-- Component reference removed as part of refactor -->
 
     <!-- Register Service Worker for offline support and caching -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('js/sw.js').then(registration => {
-                    console.log('SW registered: ', registration);
-                }).catch(registrationError => {
-                    console.log('SW registration failed: ', registrationError);
-                });
-            });
-        }
-    </script>
+    <script src="js/sw-register.js"></script>
 
 </body>
 
