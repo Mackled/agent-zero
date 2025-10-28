@@ -1,0 +1,37 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="symbolGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="50%" stop-color="#764ba2"/>
+      <stop offset="100%" stop-color="#f093fb"/>
+    </linearGradient>
+    <filter id="symbolGlow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="32" cy="32" r="30" fill="url(#symbolGradient)" opacity="0.1"/>
+  <circle cx="32" cy="32" r="28" fill="none" stroke="url(#symbolGradient)" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Ayla "A" symbol -->
+  <g transform="translate(32,32)">
+    <path d="M-6,-8 L-10,6 L-3,6 L1,-8 Z M5,6 L8,6 L1,-8 Z" 
+          fill="url(#symbolGradient)" 
+          filter="url(#symbolGlow)"
+          transform="scale(3)"/>
+    
+    <!-- Accent dots -->
+    <circle cx="0" cy="-4" r="1" fill="#ffffff" opacity="0.9"/>
+    <circle cx="2" cy="-2" r="0.7" fill="#ffffff" opacity="0.7"/>
+  </g>
+  
+  <!-- Sparkle effect -->
+  <circle cx="48" cy="16" r="1" fill="#ffffff" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+</svg>

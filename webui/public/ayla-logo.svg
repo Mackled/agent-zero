@@ -1,0 +1,55 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#667eea"/>
+      <stop offset="50%" stop-color="#764ba2"/>
+      <stop offset="100%" stop-color="#f093fb"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer glow circle -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#logoGradient)" stroke-width="3" opacity="0.6"/>
+  
+  <!-- Main background with subtle pattern -->
+  <circle cx="100" cy="100" r="80" fill="url(#logoGradient)" opacity="0.1"/>
+  <circle cx="100" cy="100" r="75" fill="none" stroke="url(#logoGradient)" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Inner glow -->
+  <circle cx="100" cy="100" r="65" fill="url(#centerGlow)" opacity="0.4"/>
+  
+  <!-- Ayla "A" symbol with modern design -->
+  <g transform="translate(100,100)">
+    <!-- Geometric A shape -->
+    <path d="M-20,-30 L-35,20 L-10,20 L5,-30 Z M15,20 L25,20 L5,-30 Z" 
+          fill="url(#logoGradient)" 
+          filter="url(#glow)"
+          transform="scale(2.5)"/>
+    
+    <!-- Additional styling elements -->
+    <circle cx="0" cy="-15" r="3" fill="#ffffff" opacity="0.8"/>
+    <circle cx="8" cy="-8" r="2" fill="#ffffff" opacity="0.6"/>
+  </g>
+  
+  <!-- Orbital rings for futuristic feel -->
+  <circle cx="100" cy="100" r="45" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.4" transform="rotate(45 100 100)"/>
+  <circle cx="100" cy="100" r="55" fill="none" stroke="url(#logoGradient)" stroke-width="0.5" opacity="0.2" transform="rotate(-30 100 100)"/>
+  
+  <!-- Sparkle effects -->
+  <circle cx="140" cy="60" r="2" fill="#ffffff" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="60" cy="140" r="1.5" fill="#ffffff" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

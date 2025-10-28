@@ -1,0 +1,720 @@
+/* Futuristic Modern UI Styles for Ayla Generative */
+
+:root {
+  /* Futuristic Color Palette */
+  --futuristic-primary: #00f3ff;        /* Electric Cyan */
+  --futuristic-secondary: #b100ff;      /* Electric Purple */
+  --futuristic-accent: #00ff9d;         /* Electric Green */
+  --futuristic-dark: #0a0a14;           /* Deep Space Blue */
+  --futuristic-darker: #05050c;         /* Deeper Space */
+  --futuristic-panel: rgba(25, 25, 45, 0.7); /* Glass Panel */
+  --futuristic-border: rgba(100, 100, 200, 0.2); /* Holographic Border */
+  --futuristic-text: #e6f7ff;          /* Holographic Text */
+  --futuristic-text-secondary: #a0d8ff; /* Secondary Text */
+  --futuristic-glow: 0 0 15px rgba(0, 243, 255, 0.5); /* Electric Glow */
+  --futuristic-glow-purple: 0 0 15px rgba(177, 0, 255, 0.4);
+  --futuristic-glow-green: 0 0 15px rgba(0, 255, 157, 0.4);
+  
+  /* Glassmorphism Variables */
+  --glass-backdrop: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 8, 32, 0.37);
+  
+  /* Modern Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Modern Spacing */
+  --spacing-xxs: 0.125rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+  
+  /* Modern Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --radius-full: 9999px;
+  
+  /* Custom gradients for futuristic effects */
+  --futuristic-gradient-primary: linear-gradient(135deg, var(--futuristic-primary), var(--futuristic-secondary));
+  --futuristic-gradient-accent: linear-gradient(135deg, var(--futuristic-accent), var(--futuristic-primary));
+  --futuristic-gradient-bg: linear-gradient(135deg, var(--futuristic-darker), var(--futuristic-dark));
+}
+
+/* Apply new futuristic theme */
+body.futuristic-mode {
+  background: var(--futuristic-gradient-bg);
+  color: var(--futuristic-text);
+  background-attachment: fixed;
+  font-family: 'Rubik', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Futuristic Container */
+.container {
+  background: var(--futuristic-gradient-bg);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(0, 243, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(177, 0, 255, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 20%, rgba(0, 255, 157, 0.03) 0%, transparent 40%),
+    linear-gradient(to bottom, var(--futuristic-darker), var(--futuristic-dark));
+  z-index: -1;
+}
+
+/* Futuristic Left Panel */
+#left-panel {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--futuristic-border);
+  box-shadow: var(--futuristic-glow), var(--glass-shadow);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  width: 280px;
+  min-width: 280px;
+  transition: all var(--transition-normal);
+}
+
+/* Futuristic Header Section */
+#logo-container {
+  position: fixed;
+  top: var(--spacing-md);
+  left: calc(4.6rem + var(--spacing-md));
+  z-index: 1001;
+  transition: all var(--transition-normal);
+}
+
+#logo-container img {
+  border-radius: var(--radius-full);
+  width: 48px;
+  height: 48px;
+  background: var(--futuristic-gradient-primary);
+  padding: 4px;
+  box-shadow: var(--futuristic-glow);
+  animation: pulse 4s infinite;
+}
+
+/* New toggle button */
+.toggle-sidebar-button {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-full);
+  width: 50px;
+  height: 50px;
+  box-shadow: var(--futuristic-glow), var(--glass-shadow);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--futuristic-primary);
+}
+
+.toggle-sidebar-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.7);
+  background: rgba(0, 243, 255, 0.1);
+}
+
+/* Futuristic Status Indicators */
+.status-icon svg circle {
+  transition: all var(--transition-fast);
+}
+
+.connected-circle {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Futuristic Config Buttons */
+.config-button {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-md);
+  color: var(--futuristic-text);
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.config-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+  transition: all var(--transition-slow);
+}
+
+.config-button:hover {
+  background: rgba(0, 243, 255, 0.15);
+  border-color: var(--futuristic-primary);
+  box-shadow: var(--futuristic-glow), 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.config-button:hover::before {
+  left: 100%;
+}
+
+.config-button:active {
+  transform: translateY(0);
+}
+
+/* Futuristic Tabs */
+.tabs {
+  border-bottom: 2px solid var(--futuristic-border);
+  gap: 0;
+}
+
+.tab {
+  padding: 12px 20px;
+  cursor: pointer;
+  position: relative;
+  color: var(--futuristic-text-secondary);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  transition: all var(--transition-fast);
+  background: transparent;
+  margin: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: var(--futuristic-primary);
+  border-bottom: 2px solid var(--futuristic-primary);
+  background: transparent;
+  position: relative;
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--futuristic-gradient-primary);
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+/* Futuristic Chat List */
+.chat-list-button {
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-list-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.05), transparent);
+  transition: all var(--transition-slow);
+}
+
+.chat-list-button:hover {
+  background: rgba(0, 243, 255, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.chat-list-button:hover::before {
+  left: 100%;
+}
+
+.chat-list-button.font-bold {
+  background: rgba(0, 243, 255, 0.1);
+  border-left: 3px solid var(--futuristic-primary);
+}
+
+.chat-name {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.chat-name:hover {
+  background: rgba(0, 243, 255, 0.15);
+}
+
+/* Futuristic Preferences Section */
+.pref-section {
+  border-top: 1px solid var(--futuristic-border);
+  padding-top: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.pref-header {
+  font-size: var(--font-size-normal);
+  color: var(--futuristic-text);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--futuristic-border);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Futuristic Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2c2c54;
+  transition: .4s;
+  border-radius: 34px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background: linear-gradient(135deg, #00f3ff, #b100ff);
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+input:checked + .slider {
+  background: linear-gradient(90deg, #00f3ff, #b100ff);
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+  box-shadow: 0 0 8px rgba(0, 243, 255, 0.8);
+}
+
+/* Futuristic Right Panel */
+#right-panel {
+  background: rgba(10, 10, 20, 0.9);
+  backdrop-filter: blur(10px);
+  border-left: 1px solid var(--futuristic-border);
+}
+
+/* Futuristic Time/Date Display */
+#time-date-container {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  border: 1px solid var(--futuristic-border);
+  box-shadow: var(--futuristic-glow);
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Futuristic Input Section */
+#input-section {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--futuristic-border);
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Futuristic Chat Input */
+#chat-input {
+  background: rgba(20, 20, 40, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-md);
+  color: var(--futuristic-text);
+  transition: all var(--transition-fast);
+  padding: 12px 40px 12px 16px;
+}
+
+#chat-input:focus {
+  border-color: var(--futuristic-primary);
+  box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.3);
+  outline: none;
+}
+
+#expand-button {
+  color: var(--futuristic-text-secondary);
+  opacity: 0.7;
+}
+
+#expand-button:hover {
+  opacity: 1;
+  color: var(--futuristic-primary);
+}
+
+/* Futuristic Buttons */
+.chat-button {
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#send-button {
+  background: var(--futuristic-gradient-primary);
+  width: 50px;
+  height: 50px;
+}
+
+#send-button:hover {
+  transform: scale(1.05);
+  box-shadow: var(--futuristic-glow), 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#send-button:active {
+  transform: scale(0.95);
+}
+
+.chat-button.mic-inactive {
+  background: var(--futuristic-panel);
+  border: 1px solid var(--futuristic-border);
+  color: var(--futuristic-text);
+}
+
+.chat-button.mic-active {
+  background: var(--futuristic-gradient-accent);
+  animation: pulse 1.5s infinite;
+}
+
+/* Futuristic Text Buttons */
+.text-button {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-md);
+  color: var(--futuristic-text);
+  padding: 10px 15px;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  position: relative;
+  overflow: hidden;
+}
+
+.text-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.1), transparent);
+  transition: all var(--transition-slow);
+}
+
+.text-button:hover {
+  background: rgba(0, 243, 255, 0.15);
+  border-color: var(--futuristic-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.text-button:hover::before {
+  left: 100%;
+}
+
+.text-button p {
+  margin: 0;
+  font-size: var(--font-size-small);
+}
+
+/* Futuristic Attachment Preview */
+.preview-item {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-item:hover {
+  border-color: var(--futuristic-primary);
+  box-shadow: var(--futuristic-glow), 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.remove-attachment {
+  background: rgba(177, 0, 255, 0.8);
+  border: none;
+  border-radius: var(--radius-full);
+  width: 24px;
+  height: 24px;
+  transition: all var(--transition-fast);
+}
+
+.remove-attachment:hover {
+  background: rgba(255, 0, 100, 0.9);
+  transform: scale(1.1);
+}
+
+/* Futuristic Edit Button */
+.edit-button {
+  background: var(--futuristic-panel);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-sm);
+  color: var(--futuristic-text);
+  transition: all var(--transition-fast);
+}
+
+.edit-button:hover {
+  background: rgba(0, 243, 255, 0.15);
+  border-color: var(--futuristic-primary);
+  color: var(--futuristic-primary);
+}
+
+/* Futuristic Progress Bar */
+#progress-bar-h {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(6px);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  border: 1px solid var(--futuristic-border);
+  font-family: 'Roboto Mono', monospace;
+}
+
+/* Futuristic Login Page */
+.login-form {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow), 0 0 30px rgba(0, 243, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-form::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 243, 255, 0.1) 0%, transparent 70%);
+  z-index: -1;
+  animation: rotate 20s linear infinite;
+}
+
+.logo {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--futuristic-glow);
+  animation: pulse 4s infinite;
+}
+
+.input-group input {
+  background: rgba(20, 20, 40, 0.6);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-md);
+  color: var(--futuristic-text);
+  transition: all var(--transition-fast);
+}
+
+.input-group input:focus {
+  border-color: var(--futuristic-primary);
+  box-shadow: 0 0 0 2px rgba(0, 243, 255, 0.3);
+  outline: none;
+}
+
+button {
+  background: var(--futuristic-gradient-primary);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 243, 255, 0.3);
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all var(--transition-slow);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 243, 255, 0.5);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+/* Futuristic Modal Styles */
+.modal-container {
+  background: var(--futuristic-panel);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--futuristic-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow), 0 0 40px rgba(0, 243, 255, 0.2);
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--futuristic-border);
+  padding-bottom: var(--spacing-md);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--futuristic-border);
+  padding-top: var(--spacing-md);
+}
+
+/* Futuristic File Browser */
+.file-item {
+  border-bottom: 1px solid var(--futuristic-border);
+  transition: all var(--transition-fast);
+}
+
+.file-item:hover {
+  background: rgba(0, 243, 255, 0.05);
+}
+
+/* Animations for futuristic elements */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(0, 243, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 243, 255, 0); }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(0, 243, 255, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(0, 243, 255, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(0, 243, 255, 0.5); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Apply subtle floating animation to logo */
+#logo-container img {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Futuristic scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 20, 40, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--futuristic-primary), var(--futuristic-secondary));
+  border-radius: 4px;
+  transition: all var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--futuristic-secondary), var(--futuristic-accent));
+}
+
+/* Responsive adjustments for futuristic design */
+@media (max-width: 768px) {
+  #left-panel {
+    width: 250px;
+    min-width: 250px;
+  }
+
+  .text-button {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+  }
+
+  .text-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Holographic effect for selected elements */
+.holographic {
+  position: relative;
+}
+
+.holographic::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--futuristic-primary), var(--futuristic-secondary), var(--futuristic-accent), var(--futuristic-primary));
+  border-radius: inherit;
+  z-index: -1;
+  animation: rotate 3s linear infinite;
+  filter: blur(5px);
+  opacity: 0.5;
+}
+
+/* Enhanced focus states for accessibility */
+:focus-visible {
+  outline: 2px solid var(--futuristic-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}

@@ -1,0 +1,47 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f3ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b100ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff9d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f3ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="rgba(10, 10, 20, 0.7)" stroke="url(#gradient-primary)" stroke-width="2" filter="url(#glow)"/>
+  
+  <!-- Main Design Elements -->
+  <g filter="url(#glow)">
+    <!-- Futuristic A Shape -->
+    <path d="M60 150 L80 50 L100 50 L120 150" stroke="url(#gradient-primary)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M65 130 L115 130" stroke="url(#gradient-accent)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    
+    <!-- Futuristic Y Shape -->
+    <path d="M130 50 L150 100 L150 150" stroke="url(#gradient-primary)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    <path d="M170 50 L150 100" stroke="url(#gradient-accent)" stroke-width="8" fill="none" stroke-linecap="round"/>
+    
+    <!-- Futuristic L-A Connection -->
+    <circle cx="150" cy="100" r="6" fill="url(#gradient-accent)"/>
+    <circle cx="100" cy="50" r="6" fill="url(#gradient-primary)"/>
+  </g>
+  
+  <!-- Subtle Circuit Pattern -->
+  <g stroke="rgba(0, 243, 255, 0.1)" stroke-width="1" fill="none">
+    <path d="M30 30 L50 30 M40 25 L40 35 M150 30 L170 30 M160 25 L160 35 M30 170 L50 170 M40 165 L40 175 M150 170 L170 170 M160 165 L160 175"/>
+    <path d="M30 30 L30 50 M25 40 L35 40 M170 30 L170 50 M165 40 L175 40 M30 150 L30 170 M25 160 L35 160 M170 150 L170 170 M165 160 L175 160"/>
+  </g>
+  
+  <!-- Inner Glow Effect -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(177, 0, 255, 0.1)" stroke-width="1"/>
+  <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(0, 243, 255, 0.05)" stroke-width="1"/>
+</svg>
