@@ -224,7 +224,7 @@
 
         .chat-button, .attachment-icon {
             background: var(--c-surface-2); border: 1px solid var(--c-border); color: var(--c-text-secondary);
-            cursor: pointer; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; width: 48px; height: 48px; border-radius: var(--border-radius); display: flex; align-items: center; justify-content: center;
             transition: var(--transition);
         }
         .chat-button:hover, .attachment-icon:hover { background-color: var(--c-primary); color: white; box-shadow: 0 0 15px var(--c-primary-glow); }
@@ -239,10 +239,12 @@
             transition: var(--transition);
         }
         .text-button:hover { background-color: var(--c-surface-2); color: var(--c-text-primary); border-color: var(--c-primary); }
-        .text-button svg, .text-button .material-symbols-outlined { width: 14px; height: 14px; }
+        .text-button svg { width: 14px; height: 14px; }
+        .text-button .material-symbols-outlined { font-size: 18px; }
 
         /* 7. YARDIMCI STİLLER VE ANİMASYONLAR */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse-text { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
         [x-cloak] { display: none !important; }
 
         #progress-bar-box { background-color: var(--c-surface-2); padding: var(--space-1) var(--space-4); font-size: var(--fs-sm); }
@@ -286,12 +288,19 @@
         .msg-heading h4 { margin: 0; margin-right: 4em; overflow: hidden; text-overflow: ellipsis; }
         .msg-json { display: none; }
         .msg-thoughts { display: auto; }
-        .mic-inactive{ background-color: grey; }
-        .mic-activating{ background-color: silver; animation: pulse 0.8s infinite; }
-        .mic-listening { background-color: red; }
-        .mic-recording { background-color: green; }
-        .mic-waiting { background-color: teal; }
-        .mic-processing { background-color: darkcyan; animation: pulse 0.8s infinite; transform-origin: center; }
+        .mic-inactive{ color: grey; }
+        .mic-activating{ color: silver; }
+        .mic-listening { color: red; }
+        .mic-recording { color: green; }
+        .mic-waiting { color: teal; }
+        .mic-processing { color: darkcyan; }
+
+        .text-button.mic-inactive .material-symbols-outlined { color: var(--c-text-secondary); }
+        .text-button.mic-activating .material-symbols-outlined { color: var(--c-primary-hover); animation: pulse-text 0.8s infinite; }
+        .text-button.mic-listening .material-symbols-outlined { color: #ff4c3c; animation: pulse-text 0.8s infinite; }
+        .text-button.mic-recording .material-symbols-outlined { color: #2eff71; }
+        .text-button.mic-waiting .material-symbols-outlined { color: #4e8cff; }
+        .text-button.mic-processing .material-symbols-outlined { color: #a0a0ff; animation: pulse-text 0.8s infinite; }
         .action-buttons { position: absolute; height:0; width:fit-content; overflow: visible; top: 0.3em; right: 0.1em; display: none; flex-direction: row; gap: 0; border-radius: 6px; transition: opacity 0.3s ease-in-out; z-index: 10; }
         .action-buttons .action-button { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; cursor: pointer; background-color: var(--c-bg); color: var(--c-text-primary); padding: 0; font-size: 14px; margin: 0; }
         .message-body:hover > .action-buttons, .msg-content:hover .action-buttons { display: flex; }
@@ -487,22 +496,19 @@
                         <button class="chat-button" id="send-button" aria-label="Send message">
                             <span class="material-symbols-outlined">send</span>
                         </button>
-                        <button class="chat-button mic-inactive" id="microphone-button" aria-label="Start/Stop recording" @click="$store.speech.handleMicrophoneClick()" x-effect="$store.speech.updateMicrophoneButtonUI()">
-                            <span class="material-symbols-outlined">mic</span>
-                        </button>
                     </div>
                 </div>
                 <div class="text-buttons-row">
                     <button class="text-button" @click="pauseAgent(!paused)">
-                        <template x-if="!paused"><span class="material-symbols-outlined">pause</span></template>
-                        <template x-if="paused"><span class="material-symbols-outlined">play_arrow</span></template>
-                        <span x-text="paused ? 'Resume Agent' : 'Pause Agent'"></span>
+                        <span class="material-symbols-outlined">smart_toy</span>
+                        <span x-text="paused ? 'Resume Agent' : 'Pause Agent'">Pause Agent</span>
                     </button>
                     <button class="text-button" @click="loadKnowledge()"><span class="material-symbols-outlined">upload</span>Import knowledge</button>
                     <button class="text-button" id="work_dir_browser" @click="fileBrowserModalProxy.openModal()"><span class="material-symbols-outlined">folder</span>Files</button>
                     <button class="text-button" id="history_inspect" @click="globalThis.openHistoryModal()"><span class="material-symbols-outlined">history</span>History</button>
                     <button class="text-button" id="ctx_window" @click="globalThis.openCtxWindowModal()"><span class="material-symbols-outlined">data_object</span>Context</button>
-                    <button class="text-button" id="nudges_window" @click="nudge()"><span class="material-symbols-outlined">lightbulb</span>Nudge</button>
+                    <button class="text-button" id="nudges_window" @click="nudge()"><span class="material-symbols-outlined">touch_app</span>Nudge</button>
+                    <button class="text-button mic-inactive" id="microphone-button" aria-label="Start/Stop recording" @click="$store.speech.handleMicrophoneClick()" x-effect="$store.speech.updateMicrophoneButtonUI()"><span class="material-symbols-outlined">mic</span>Sesli Komut</button>
                 </div>
             </div>
         </div>
